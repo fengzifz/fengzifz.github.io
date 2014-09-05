@@ -21,42 +21,34 @@
 
 <div id="main_content_wrap" class="outer">
 	<section id="main_content" class="inner">
-		<h2>第二章：准备基本类库</h2>
+		<h2>第三章：HTML 和 CSS</h2>
 
-		<p>1. 需要用到的第三方类库：</p>
-		<ul>
-			<li>jQuery (<a href="http://jquery.com/" target="_blank">http://jquery.com/</a>)</li>
-			<li>SeaJs (<a href="http://seajs.org/docs/" target="_blank">http://seajs.org/docs/</a>)</li>
-		</ul>
-		<p>把 jQuery 和 SeaJs 放到 <code>/js/cores/</code> 里面</p>
+		<p>这章，我们把基本的 html 和 css 写好。</p>
+
+		<p>HTML 结构：</p>
+
+<pre><code>&lt;div id="content">
+	&lt;div id="section1" class="section section1">&lt;/div>
+	&lt;div id="section2" class="section section2">&lt;/div>
+	&lt;div id="section3" class="section section3">&lt;/div>
+	&lt;div id="section4" class="section section4">&lt;/div>
+	&lt;div id="section5" class="section section5">&lt;/div>
+	&lt;div id="section6" class="section section6">&lt;/div>
+&lt;/div></code></pre>
 
 		<br />
 
-		<p>2. 在 <code>/js/cores/</code> 里面添加 <code>seajs-config.js</code> 文件：</p>
-<pre><code>seajs.config({
-	base: '/js/',
-	alias: {
-		'jquery': 'cores/jquery-1.11.1.min.js'
-	},
-	preload:[
-		'jquery' // 预加载 jQuery
-	]
-});
-</code></pre>
+		<p>CSS 样式，主要把每个 section 设置成绝对定位就可以了。</p>
+		<p>那么基本的东西已经准备好了。</p>
 
-		<p>3. 在需要的页面引入 seajs 和 seajs-config 文件，如在 index.html 的 header：</p>
-<pre><code>&lt;script type="text/javascript" src="/js/cores/sea.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="/js/cores/seajs-config.js"&gt;&lt;/script&gt;
-</code></pre>
-
-		<p>最基本的类库已经准备完毕。</p>
+		<br />
 
 		<p>从 github 上克隆代码：</p>
 <pre><code>git clone https://github.com/fengzifz/injs.git
-git checkout chapter_02</code></pre>
+git checkout chapter_03</code></pre>
 
 		<p>
-			<a href="01_03.html">下一章</a> &nbsp;&nbsp;
+			<a href="01_04.html">下一章</a> &nbsp;&nbsp;
 			<a href="01.html">返回列表</a>
 		</p>
 
