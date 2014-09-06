@@ -1,0 +1,90 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-COMPATIBLE" content="chrome=1" />
+	<meta name="description" content="Web前端，JavaScript，PHP，node，express，mongo，angular">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../stylesheets/stylesheet.css">
+	<title>Damon's Blog</title>
+</head>
+
+<body>
+<!-- Header Start -->
+<div id="header_wrap" class="outer">
+	<header class="inner">
+		<a id="forkme_banner" href="https://github.com/fengzifz">View on GitHub</a>
+		<h1 id="project_title">Damon's Blog</h1>
+		<h2 id="project_tagline"></h2>
+	</header>
+</div>
+<!-- Header End -->
+
+<div id="main_content_wrap" class="outer">
+	<section id="main_content" class="inner">
+		<h2>第四章：利用 seajs 组织代码</h2>
+
+		<p>Sea.js 遵循 CMD（Common Module Definition）规范，我们可以轻松地组织自己的代码。</p>
+
+		<p>参考资料：</p>
+		<ul>
+			<li><a href="https://github.com/seajs/seajs/issues/547">前端模块开发的价值</a></li>
+			<li><a href="https://github.com/seajs/seajs/issues/242">CMD 模块定义规范</a></li>
+			<li><a href="https://github.com/seajs/seajs/issues/258">模块标识</a></li>
+			<li><a href="https://github.com/seajs/seajs/issues/259">书写约定</a></li>
+		</ul>
+
+		<p>有了这些基本知识，我们开始构建第一个模块。</p>
+
+		<p>在 <code>/js/modules/</code> 目录下，创建文件（模块） <code>section-switch.js</code>，该模块只负责页面的切换。</p>
+
+		<p>按照 Seajs 的约定，我们现在 <code>section-switch.js</code> 里面添加如下代码：</p>
+
+<pre><code>define(function(require, exports, module) {
+	// 引入依赖
+	require('jquery');
+});
+</code></pre>
+
+		<p>如果我们有其他模块需要引入，就直接 <code>require('xxx');</code> 就可以了。</p>
+
+		<p>利用模块化来管理代码，不用担心命名冲突，也可以很好地维护自己的代码，和方便协作开发。</p>
+
+		<p>接下来我们会慢慢丰富这个模块。</p>
+
+
+		<br/>
+
+		<p>从 github 上克隆代码：</p>
+<pre><code>git clone https://github.com/fengzifz/injs.git
+git checkout chapter_04</code></pre>
+
+		<p>
+			<a href="01_05.html">下一章</a> &nbsp;&nbsp;
+			<a href="01.html">返回列表</a>
+		</p>
+
+	</section>
+</div>
+
+<!-- Footer Start -->
+<div id="footer_wrap" class="outer">
+	<footer class="inner">
+		<p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+	</footer>
+</div>
+<!-- Footer End -->
+
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+	try {
+		var pageTracker = _gat._getTracker("UA-31471277-1");
+		pageTracker._trackPageview();
+	} catch(err) {}
+</script>
+
+</body>
+</html>
