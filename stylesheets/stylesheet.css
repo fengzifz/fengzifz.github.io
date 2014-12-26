@@ -426,6 +426,6 @@ Small Device Styles
 /*******************************************************************************
 Customer Style -- By Damon
 *******************************************************************************/
-.project_title .project_title_link {
+#project_title .project_title_link {
   color: #ffffff;
 }
