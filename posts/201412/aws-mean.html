@@ -65,26 +65,26 @@
 		<pre><code>sudo mount -a /dev/sdf /data/db</code></pre>
 
 		<h5>下载 MongoDB</h5>
-		<pre><code>curl http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.0.2.tgz > m.tgz
-		tar xzf m.tgz</code></pre>
+<pre><code>curl http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.0.2.tgz > m.tgz
+tar xzf m.tgz</code></pre>
 
 		<h5>使用 package manager 安装</h5>
-		<pre><code>sudo vi /etc/yum.repos.d/10gen.repo
-			# Then edit the file to contain:
-			name=10gen Repository
-			baseurl=http://download-distro.mongodb.org/repo/redhat/os/x86_64
-			gpgcheck=0</code></pre>
+<pre><code>sudo vi /etc/yum.repos.d/10gen.repo
+# Then edit the file to contain:
+name=10gen Repository
+baseurl=http://download-distro.mongodb.org/repo/redhat/os/x86_64
+gpgcheck=0</code></pre>
 
 		<h5>使用 yum 安装</h5>
 		<pre><code>sudo yum install mongo-10gen</code></pre>
 
 		<h5>配置 MongoDB</h5>
-		<pre><code>sudo vi /etc/mongodb.conf
-			# Edit the file to contain:
-			oplogSize=8000
-			journal=true
-			dbpath=/data/db
-			logpath=/data/db/logs</code></pre>
+<pre><code>sudo vi /etc/mongodb.conf
+# Edit the file to contain:
+oplogSize=8000
+journal=true
+dbpath=/data/db
+logpath=/data/db/logs</code></pre>
 
 		<h5>启动 MongoDB</h5>
 		<pre><code>./mongodb-xxxxxx/bin/mongod</code></pre>
@@ -131,11 +131,11 @@
 		<pre><code>sudo wget http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz</code></pre>
 
 		<h4>解压文件，并检查配置</h4>
-		<pre><code>cd ~/node-v0.10.32.tar.gz
-			tar xvf node-v0.10.32.tar.gz
-			cd node-v0.10.32
-			# 如果不先安装 gcc-c++，都这里会报错的
-			./configure</code></pre>
+<pre><code>cd ~/node-v0.10.32.tar.gz
+tar xvf node-v0.10.32.tar.gz
+cd node-v0.10.32
+# 如果不先安装 gcc-c++，都这里会报错的
+./configure</code></pre>
 
 		<h4>安装 NodeJs</h4>
 		<pre><code>make install</code></pre>
@@ -148,15 +148,15 @@
 		<hr />
 
 		<h3>安装 ExpressJS 和 AngularJS</h3>
-		<pre><code>npm install express
-			npm install angular</code></pre>
+<pre><code>npm install express
+npm install angular</code></pre>
 
 		<hr />
 
 		<h3>使用 forever 启动 NodeJS</h3>
 		<p>forever 一个用来持续（或者说永远）运行一个给定脚本的简单的命令行工具。简单来说，就是可以可以启动、停止和重启我们的 app 应用的工具。</p>
-		<pre><code># 记得加-g，forever要求安装到全局环境下
-			sudo npm install forever -g</code></pre>
+<pre><code># 记得加-g，forever要求安装到全局环境下
+sudo npm install forever -g</code></pre>
 
 		<p>详细使用方式请 Google 之。</p>
 
@@ -169,23 +169,23 @@
 		<pre><code>exception in initAndListen: 10309 Unable to create/open lock file: /data/db/mongod.lock errno:13 Permission denied Is a mongod instance already running?, terminating</code></pre>
 
 		<p>这是因为当前的用户没有权限访问 <code>/data/db</code> 目录</p>
-		<pre><code># To fix it
-			chown &lt;username&gt; /data/db</code></pre>
+<pre><code># To fix it
+chown &lt;username&gt; /data/db</code></pre>
 
 		<h4>-bash: node: command not found</h4>
 		<p>如果出现 <code>-bash: node: command not found</code> 错误，先检查 node 是否已经真的安装了：</p>
-		<pre><code>s -l /usr/local/bin | grep node
-			# Bash display below message is mean that node have existed
-			>> -rwxrwxr-x 1 root root 11515348 10月  1 03:48 node
-			>> lrwxrwxrwx 1 root root       38 10月  1 03:52 npm -> ../lib/node_modules/npm/bin/npm-cli.js
-			ls -l /usr/local/bin/node
-			# Bash desplay below message
-			>> -rwxrwxr-x 1 root root 11515348 10月  1 03:48 /usr/local/bin/node</code></pre>
+<pre><code>s -l /usr/local/bin | grep node
+# Bash display below message is mean that node have existed
+>> -rwxrwxr-x 1 root root 11515348 10月  1 03:48 node
+>> lrwxrwxrwx 1 root root       38 10月  1 03:52 npm -> ../lib/node_modules/npm/bin/npm-cli.js
+ls -l /usr/local/bin/node
+# Bash desplay below message
+>> -rwxrwxr-x 1 root root 11515348 10月  1 03:48 /usr/local/bin/node</code></pre>
 
 		<p>如果出现上面的结果，那么 node 已经安装了，那么可能就是编译路径未配置，配置编译路径，在 <code>/etc/profile</code> 文件里面，添加两行：</p>
 
-		<pre><code>export PATH="$HOME/local/node/bin:$PATH"
-			export NODE_PATH="$HOME/local/node:$HOME/local/node/lib/node_modules"</code></pre>
+<pre><code>export PATH="$HOME/local/node/bin:$PATH"
+export NODE_PATH="$HOME/local/node:$HOME/local/node/lib/node_modules"</code></pre>
 
 		<p>然后重启系统：</p>
 		<pre><code>reboot -f</code></pre>
@@ -194,10 +194,10 @@
 		<p>安装好 Node 后，可以使用 npm 来安装 AngularJS 和 Express，但使用 npm 的时候，可能会出现错误：<code>-bash: npm: command not found</code></p>
 
 		<p>在 terminal 里面输入以下命令解决：</p>
-		<pre><code>sudo ln -s /usr/local/bin/node /usr/bin/node
-			sudo ln -s /usr/local/lib/node /usr/lib/node
-			sudo ln -s /usr/local/bin/npm /usr/bin/npm
-			sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf</code></pre>
+<pre><code>sudo ln -s /usr/local/bin/node /usr/bin/node
+sudo ln -s /usr/local/lib/node /usr/lib/node
+sudo ln -s /usr/local/bin/npm /usr/bin/npm
+sudo ln -s /usr/local/bin/node-waf /usr/bin/node-waf</code></pre>
 
 		<h4>如何开放 AWS EC2 Instance 的 80 端口</h4>
 		<ol>
