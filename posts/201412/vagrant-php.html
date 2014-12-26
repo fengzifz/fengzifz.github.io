@@ -45,18 +45,18 @@
 
 		<h3>4. 初始化项目</h3>
 		<p>创建项目目录</p>
-		<code><pre>mkdir vagrant_test_dir</pre></code>
+		<pre><code>mkdir vagrant_test_dir</code></pre>
 
 		<p>5. 初始化项目</p>
-<code><pre>cd vagrant_test_dir
-vagrant init</pre></code>
+<pre><code>cd vagrant_test_dir
+vagrant init</code></pre>
 
 		<hr />
 
 		<h3>6. 添加 box</h3>
 		<p>下载完成后，通过 `vagrant box add &gt;name&lt; &gt;box url&lt;` 命令来添加 box</p>
 		<p>假设 vagrant box 的存放路径是：~/Download/lucid64.box</p>
-		<code><pre>vagrant box add lucid64-test ~/Download/lucid64.box</pre></code>
+		<pre><code>vagrant box add lucid64-test ~/Download/lucid64.box</code></pre>
 
 		<hr />
 
@@ -64,15 +64,15 @@ vagrant init</pre></code>
 		<p>在启动 Vagrant Box 之前，先修改的配置文件，让 Vagrant 知道启动哪个 box。</p>
 		<p>通过第 6 步成功添加 box 后，在 vagrant_test_dir 目录下，会有一个 `Vagrantfile` 的文件。</p>
 		<p>编辑该文件，找到 `config.vm.box = "base"`，把该值换成第 6 步添加 box 时的名字，这里是 "lucid64-test"</p>
-<code><pre>Vagrant.configure("2") do |config|
+<pre><code>Vagrant.configure("2") do |config|
   config.vm.box = "luccid64-test"
-end</pre></code>
+end</code></pre>
 
 		<p>启动 Vagrant</p>
-		<code><pre>vagrant up</pre></code>
+		<pre><code>vagrant up</code></pre>
 
 		<p>通过 ssh 连接</p>
-		<code><pre>vagrant ssh</pre></code>
+		<pre><code>vagrant ssh</code></pre>
 
 		<p>进入 Virtual box 的系统后，我们就可以根据项目需要配置自己的开发环境了。</p>
 
