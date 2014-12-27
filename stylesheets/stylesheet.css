@@ -429,3 +429,7 @@ Customer Style -- By Damon
 #project_title .project_title_link {
   color: #ffffff;
 }
+
+#project_title .project_title_link:hover {
+  color: #007edf;
+}
