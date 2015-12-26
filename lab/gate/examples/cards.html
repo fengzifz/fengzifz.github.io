@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card | Gate.js</title>
+    <meta name="keyword" content="HTML5 CSS3 Transform 3D gate.js cube rotate" />
+    <meta name="description" content="HTML5 CSS3 Transform 3D gate.js cube rotate" />
+    <script src="../gate.js"></script>
+    <script src="../js/colorHelper.js"></script>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            padding: 20px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 20px;
+            background: #7e7e7e;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    400 DOM build with Gate.js
+</div>
+<script>
+    var stage = Gate.createStage();
+    var container = new Gate();
+    var card = [];
+    var timer = [];
+    var length = 400;
+    var i;
+    var width = 20;
+    var height = 50;
+    var columnNum = 40;
+
+    container
+            .setTransformOrigin('50%', '50%', 0)
+            .setWidth(width * ( columnNum - 1))
+            .go();
+
+    stage.setTransformOrigin('50%', '50%', 0).go();
+
+    var colors = generateColor('#99FFA6','#ff0ff0', length);
+
+    for (i = 0; i < length; i++) {
+        card[i] = container.addChild(
+                new Gate()
+                        .setClassName('card')
+                        .enableTransition()
+                        .setCSS('background-color', colors[i])
+                        .setWidth(width)
+                        .setHeight(height)
+                        .go()
+        );
+    }
+
+    stage.addChild(container);
+
+    var j, k, m, t = 0.1, z, f, index = 0;
+
+    function spread() {
+        var i = 0, j = 0, k = 0;
+
+        for (i = 0; i < length; i++) {
+            j = i + '';
+
+            k = parseInt(i / columnNum);
+            m = parseInt(i % columnNum);
+
+            card[i]
+                    .moveX(width * 1.5 * m + width)
+                    .moveY(height * (1 + 1.5 * k))
+                    .go();
+
+        }
+    }
+
+    function flip() {
+        var i = 0, j = 0;
+
+        for (i = 0; i < length; i++) {
+
+            j = -120;
+            if (i % 2 == 0) {
+                j = 120;
+            }
+
+            card[i].setRotateX(j).go();
+        }
+    }
+
+    function setOpacity(o) {
+        var i = 0;
+
+        for (i = 0; i < length; i++) {
+            card[i].setOpacity(o).go();
+        }
+    }
+
+    function pack() {
+        card[index].setX(0).setY(0).go();
+    }
+
+    setTimeout(function() {
+
+        spread();
+
+        setInterval(function() {
+            t += 0.1;
+            z = t.toFixed(1);
+
+            container
+                    .setRotateY(1)
+                    .go();
+
+            if (z > 12 && index < length) {
+                pack();
+                index++;
+            }
+
+            if (z == columnNum * 2) {
+                spread();
+            }
+
+            if (z == columnNum * 3) {
+                flip();
+            }
+
+            if (z == columnNum * 4) {
+                setOpacity(0.5);
+            }
+
+        }, 15);
+
+    }, 1000);
+
+</script>
+</body>
+</html>
